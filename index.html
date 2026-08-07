@@ -386,7 +386,7 @@
     grid-area:playlist;position:relative;display:block;width:100%;
     border:none;padding:0;cursor:pointer;border-radius:6px;overflow:hidden;
     background:linear-gradient(160deg,var(--navy-800),var(--navy-950));
-    aspect-ratio:16/10;
+    aspect-ratio:16/9;
   }
   .conf-playlist-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s ease;}
   .conf-playlist-img[src]:not([src=""]){opacity:1;}
@@ -403,7 +403,7 @@
       grid-template-areas:"text playlist" "list playlist" "cta playlist";
       gap:16px 56px;align-items:start;
     }
-    .conf-playlist{aspect-ratio:auto;align-self:stretch;}
+    .conf-playlist{aspect-ratio:16/9;align-self:start;}
   }
   @media(max-width:760px){
     .conf-wrap{min-height:auto;}
@@ -678,7 +678,7 @@
     </div>
   </section>
 
-  <!-- TRUST BAR -->
+  <!-- TRUST BAR (comentado temporalmente a pedido del cliente, se retoma más adelante)
   <section class="trust-bar">
     <div class="wrap">
       <span class="trust-eyebrow">Empresas e instituciones que confiaron en sus conferencias</span>
@@ -692,6 +692,8 @@
       </div>
     </div>
   </section>
+  -->
+  <!-- Fin TRUST BAR comentada -->
 
   <!-- MEDIA -->
   <section class="section-cream" id="colaboraciones">
