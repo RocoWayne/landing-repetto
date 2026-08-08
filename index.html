@@ -410,6 +410,60 @@
     .conf-list{grid-template-columns:1fr;}
   }
 
+  /* DOCUMENTALES */
+  .docs-wrap{
+    position:relative;overflow:hidden;color:var(--cream);
+    background:linear-gradient(160deg,var(--navy-800) 0%,var(--navy-950) 100%);
+  }
+  /* Textura genérica de fondo (placeholder) — reemplazar por el diseño/imagen final cuando esté listo */
+  .docs-wrap::before{
+    content:"";position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:radial-gradient(rgba(244,241,234,.05) 1px, transparent 1px);
+    background-size:22px 22px;
+  }
+  .docs-wrap::after{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(ellipse 60% 55% at 80% 15%, rgba(196,155,90,.14), transparent 70%);
+  }
+  .docs-wrap .wrap{position:relative;z-index:1;}
+  .docs-head{max-width:640px;margin:0 auto 48px;text-align:center;}
+  .docs-head .eyebrow{display:block;}
+  .docs-head h2{font-size:clamp(1.7rem,3vw,2.3rem);color:var(--cream);margin:10px 0 14px;}
+  .docs-head p{color:#a9b0bc;font-size:.98rem;line-height:1.65;}
+  .docs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .doc-card{
+    display:block;width:100%;text-align:left;background:rgba(244,241,234,.04);
+    border:1px solid rgba(244,241,234,.1);padding:0;margin:0;font-family:var(--sans);
+    border-radius:6px;overflow:hidden;cursor:pointer;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .doc-card:hover{transform:translateY(-4px);border-color:rgba(196,155,90,.45);background:rgba(244,241,234,.07);}
+  .doc-thumb{
+    position:relative;aspect-ratio:16/9;overflow:hidden;
+    background:linear-gradient(155deg,var(--navy-700),var(--navy-950));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .doc-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease, filter .35s ease;}
+  .doc-thumb-icon{color:rgba(244,241,234,.22);}
+  .doc-card:hover .doc-thumb img{transform:scale(1.05);filter:brightness(.85);}
+  .doc-num{
+    position:absolute;top:10px;left:10px;font-family:var(--serif);font-size:.7rem;font-weight:700;
+    letter-spacing:.05em;color:var(--gold-light);background:rgba(8,11,17,.65);padding:4px 9px;border-radius:2px;
+  }
+  .doc-play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:46px;height:46px;border-radius:50%;background:rgba(196,155,90,.95);color:#141414;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .2s ease, background .2s ease;
+  }
+  .doc-card:hover .doc-play{transform:translate(-50%,-50%) scale(1.08);background:var(--gold-light);}
+  .doc-body{padding:14px 16px 18px;}
+  .doc-title{display:block;font-size:.92rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:4px;}
+  .doc-source{display:block;font-size:.72rem;color:#8890a0;text-transform:uppercase;letter-spacing:.04em;}
+  .docs-cta{text-align:center;margin-top:40px;}
+  @media(max-width:900px){.docs-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.docs-grid{grid-template-columns:1fr;}}
+
   /* MEDIA */
   .media-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px;}
   .media-head h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-top:8px;color:var(--ink);}
@@ -503,6 +557,7 @@
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#programa">26 Global</a></li>
       <li><a href="#conferencias">Conferencias</a></li>
+      <li><a href="#documentales">Documentales</a></li>
       <li><a href="#colaboraciones">Colaboraciones</a></li>
       <li class="mobile-only-item"><a href="#contacto">Contacto</a></li>
     </ul>
@@ -694,6 +749,101 @@
   </section>
   -->
   <!-- Fin TRUST BAR comentada -->
+
+  <!-- DOCUMENTALES -->
+  <!--
+    Para activar cada documental cuando esté el video real de YouTube:
+    1) Completar data-video-id="ID_DE_YOUTUBE" (se usa para abrir el modal).
+    2) Agregar <img src="https://img.youtube.com/vi/ID_DE_YOUTUBE/mqdefault.jpg" alt="..." loading="lazy" decoding="async">
+       dentro de .doc-thumb, antes del ícono de placeholder (mismo patrón que en Colaboraciones).
+    3) Reemplazar el título genérico "Documental 0X" por el título real.
+    El fondo de la sección (.docs-wrap) es un placeholder genérico (textura + resplandor dorado);
+    reemplazar por el diseño/imagen final cuando esté listo.
+  -->
+  <section class="docs-wrap" id="documentales">
+    <div class="wrap">
+      <div class="docs-head">
+        <span class="eyebrow">Documentales</span>
+        <h2>Una serie documental junto a 26 Planeta Documentales</h2>
+        <p>Ocho episodios que recorren los grandes temas de la agenda internacional, con el mismo enfoque claro y didáctico que caracteriza a Andrés Repetto.</p>
+      </div>
+      <div class="docs-grid">
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 01">
+          <span class="doc-thumb">
+            <span class="doc-num">01</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 01</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 02">
+          <span class="doc-thumb">
+            <span class="doc-num">02</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 02</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 03">
+          <span class="doc-thumb">
+            <span class="doc-num">03</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 03</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 04">
+          <span class="doc-thumb">
+            <span class="doc-num">04</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 04</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 05">
+          <span class="doc-thumb">
+            <span class="doc-num">05</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 05</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 06">
+          <span class="doc-thumb">
+            <span class="doc-num">06</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 06</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 07">
+          <span class="doc-thumb">
+            <span class="doc-num">07</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 07</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+        <button type="button" class="doc-card" data-video-id="" data-video-title="Documental 08">
+          <span class="doc-thumb">
+            <span class="doc-num">08</span>
+            <svg class="doc-thumb-icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5 20 6l1 3-17 2.5z"/><rect x="3" y="9.5" width="18" height="11" rx="1.5"/><path d="m7 8 2-3M12 8l2-3M17 8l2-3"/></svg>
+            <span class="doc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="doc-body"><span class="doc-title">Documental 08</span><span class="doc-source">26 Planeta Documentales</span></span>
+        </button>
+
+      </div>
+    </div>
+  </section>
 
   <!-- MEDIA -->
   <section class="section-cream" id="colaboraciones">
@@ -896,8 +1046,10 @@
     document.body.style.overflow = '';
     if (lastFocusedElVideo) lastFocusedElVideo.focus();
   }
-  document.querySelectorAll('.media-card').forEach(card => {
+  // .media-card (Colaboraciones) y .doc-card (Documentales) comparten el mismo modal de video
+  document.querySelectorAll('.media-card, .doc-card').forEach(card => {
     card.addEventListener('click', () => {
+      if (!card.dataset.videoId) return; // sin ID de YouTube cargado todavía (placeholder)
       abrirVideoModal(card.dataset.videoId, card.dataset.videoTitle);
     });
   });
